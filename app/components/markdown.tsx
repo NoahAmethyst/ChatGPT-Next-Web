@@ -118,7 +118,7 @@ function _MarkDownContent(props: { content: string }) {
         p: (pProps) => <p {...pProps} dir="auto" />,
         a: (aProps) => {
           const href = aProps.href || "";
-          const isInternal = /^\/#/i.test(href);
+          const isInternal = /^\/chatgpt#/i.test(href);
           const target = isInternal ? "_self" : aProps.target ?? "_blank";
           return <a {...aProps} target={target} />;
         },
