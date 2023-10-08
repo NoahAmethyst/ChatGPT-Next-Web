@@ -17,4 +17,5 @@ jobs:
           repo: Blog-Index
           github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           workflow_file_name: docker.yml
+          ref: master
           trigger_workflow: true
