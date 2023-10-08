@@ -10,6 +10,7 @@ const id: PartialLocaleType = {
   Auth: {
     Title: "Diperlukan Kode Akses",
     Tips: "Masukkan kode akses di bawah",
+    SubTips: "Atau masukkan kunci API OpenAI Anda",
     Input: "Kode Akses",
     Confirm: "Konfirmasi",
     Later: "Nanti",
@@ -300,6 +301,10 @@ const id: PartialLocaleType = {
     Success: "Tersalin ke clipboard",
     Failed:
       "Gagal menyalin, mohon berikan izin untuk mengakses clipboard atau Clipboard API tidak didukung (Tauri)",
+  },
+  Download: {
+    Success: "Konten berhasil diunduh ke direktori Anda.",
+    Failed: "Unduhan gagal.",
   },
   Context: {
     Toast: (x: any) => `Dengan ${x} promp kontekstual`,
