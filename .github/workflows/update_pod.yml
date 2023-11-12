@@ -15,7 +15,7 @@ jobs:
         with:
           server: ${{ secrets.GRPC_SERVER }}
           action: delete-pod
-          app: ${{ secrets.APP }}
+          app: chatgpt-web
 #      - name: update kubernetes pod
 #        uses: appleboy/ssh-action@v1.0.0
 #        with:
