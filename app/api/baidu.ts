@@ -3,13 +3,12 @@ import {
   BAIDU_BASE_URL,
   ApiPath,
   ModelProvider,
-  BAIDU_OATUH_URL,
   ServiceProvider,
 } from "@/app/constant";
 import { prettyObject } from "@/app/utils/format";
 import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@/app/api/auth";
-import { isModelAvailableInServer } from "@/app/utils/model";
+import { isModelNotavailableInServer } from "@/app/utils/model";
 import { getAccessToken } from "@/app/utils/baidu";
 
 const serverConfig = getServerSideConfig();
@@ -70,9 +69,12 @@ async function request(req: NextRequest) {
   console.log("[Proxy] ", path);
   console.log("[Base Url]", baseUrl);
 
-  const timeoutId = setTimeout(() => {
-    controller.abort();
-  }, 10 * 60 * 1000);
+  const timeoutId = setTimeout(
+    () => {
+      controller.abort();
+    },
+    10 * 60 * 1000,
+  );
 
   const { access_token } = await getAccessToken(
     serverConfig.baiduApiKey as string,
@@ -102,7 +104,7 @@ async function request(req: NextRequest) {
 
       // not undefined and is false
       if (
-        isModelAvailableInServer(
+        isModelNotavailableInServer(
           serverConfig.customModels,
           jsonBody?.model as string,
           ServiceProvider.Baidu as string,
